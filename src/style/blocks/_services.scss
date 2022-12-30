@@ -1,0 +1,46 @@
+.services {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: -10px;
+
+    & > li {
+      flex-basis: 100%;
+      margin: 10px;
+    }
+  }
+
+  @include media-min ($md) {
+    &__list {
+      flex-direction: row;
+    }
+  }
+
+  @include media-min ($lg) {
+    &__list {
+      margin: -15px;
+
+      & > * {
+        margin: 15px;
+      }
+    }
+  }
+
+  @include media-min ($xl) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    &__title {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+@import "service-card";

@@ -1,0 +1,35 @@
+.anim-fade-down {
+  animation-name: fade-down;
+  animation-fill-mode: forwards;
+  animation-duration: .2s;
+}
+
+.anim-fade-up {
+  animation-name: fade-up;
+  animation-fill-mode: forwards;
+  animation-duration: .2s;
+}
+
+@keyframes fade-down {
+  0% {
+    transform: translate(0, -15%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    transform: translate(0, 15%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}

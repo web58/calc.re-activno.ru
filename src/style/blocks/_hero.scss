@@ -1,0 +1,23 @@
+.hero {
+  padding-top: 60px;
+  padding-bottom: 30px;
+  color: var(--white);
+  background-color: var(--accent);
+
+  &__title {
+    margin-bottom: 24px;
+  }
+
+  @include media-min ($md) {
+    padding-top: 120px;
+    padding-bottom: 40px;
+
+    &__title {
+      margin-bottom: 30px;
+    }
+  }
+
+  @include media-min ($xl) {
+    padding-bottom: 60px;
+  }
+}

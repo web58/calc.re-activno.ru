@@ -1,0 +1,60 @@
+.header-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  text-decoration: none;
+
+  &__text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
+  @include media-min ($lg) {
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    border-radius: 0;
+
+    &--email {
+      font-size: 15px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &--phone {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--black);
+      transition: color .2s ease-in-out;
+
+      &:hover {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+    }
+
+    &__text {
+      position: static;
+      width: auto;
+      height: auto;
+      margin: 0;
+      clip-path: none;
+      clip: auto;
+      overflow: visible;
+    }
+  }
+}

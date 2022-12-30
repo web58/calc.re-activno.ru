@@ -1,0 +1,158 @@
+<section class="caclculator">
+  <h2 class="visually-hidden">Расчитать эффективность</h2>
+  <div class="caclculator__data">
+    <div class="container caclculator__field-wrapper">
+      <fieldset class="indent-reset caclculator__field caclculator__field--decor caclculator-field">
+        <legend class="indent-reset hd hd--h2 caclculator-field__title">Расходы</legend>
+        <div class="caclculator-field__content">
+          <div class="caclculator-field__wrapper">
+            <label class="caclculator-field__label caclculator-field__label--val">
+              <span class="small caclculator-field__label-text">Бюджет на месяц</span>
+              <input class="caclculator-field__input" type="number" id="budget-month" placeholder="0">
+            </label>
+            <div class="caclculator-field__tooltip tooltip">
+              ?
+              <span class="small anim-fade-up tooltip__text">Сумма трат на рекламный бюджет за месяц</span>
+            </div>
+          </div>
+          <div class="caclculator-field__wrapper">
+            <label class="caclculator-field__label caclculator-field__label--val">
+              <span class="small caclculator-field__label-text">Расходы на ведение</span>
+              <input class="caclculator-field__input" type="number" id="maintenance-costs" placeholder="0">
+            </label>
+            <div class="caclculator-field__tooltip tooltip">
+              ?
+              <span class="small anim-fade-up tooltip__text">Стоимость услуг по настройке и ведению рекламы</span>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="indent-reset caclculator__field caclculator__field--decor caclculator-field">
+        <legend class="indent-reset hd hd--h2 caclculator-field__title">Конверсия</legend>
+        <div class="caclculator-field__content">
+          <div class="caclculator-field__wrapper">
+            <label class="caclculator-field__label">
+              <span class="small caclculator-field__label-text">Заявки</span>
+              <input class="caclculator-field__input" type="number" id="applications-count" placeholder="0">
+            </label>
+            <div class="caclculator-field__tooltip tooltip">
+              ?
+              <span class="small anim-fade-up tooltip__text">Количество заявок, полученных с сайта</span>
+            </div>
+          </div>
+          <div class="caclculator-field__wrapper">
+            <label class="caclculator-field__label">
+              <span class="small caclculator-field__label-text">Клиенты</span>
+              <input class="caclculator-field__input" type="number" id="clients-count" placeholder="0">
+            </label>
+            <div class="caclculator-field__tooltip tooltip">
+              ?
+              <span class="small anim-fade-up tooltip__text">Количество клиентов, которые после заявки стали вашими клиентами</span>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="indent-reset caclculator__field caclculator-field">
+        <legend class="indent-reset hd hd--h2 caclculator-field__title">Клиенты</legend>
+        <div class="caclculator-field__content">
+          <div class="caclculator-field__wrapper">
+            <label class="caclculator-field__label caclculator-field__label--val">
+              <span class="small caclculator-field__label-text">Средний чек</span>
+              <input class="caclculator-field__input" type="number" id="average-check" placeholder="0">
+            </label>
+            <div class="caclculator-field__tooltip tooltip">
+              ?
+              <span class="small anim-fade-up tooltip__text">Средний чек на ваши услуги на 1 клиента</span>
+            </div>
+          </div>
+          <div class="caclculator-field__wrapper">
+            <label class="caclculator-field__label caclculator-field__label--date">
+              <span class="small caclculator-field__label-text">Средний период работы</span>
+              <input class="caclculator-field__input" type="number" id="average-period" placeholder="0">
+            </label>
+            <div class="caclculator-field__tooltip tooltip">
+              ?
+              <span class="small anim-fade-up tooltip__text">Средний период сотрудничества с вашим клиентом в мес.</span>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+  <div class="caclculator__results">
+    <div class="container caclculator__field-wrapper">
+      <div class="caclculator__field caclculator-field">
+        <div class="caclculator-field__content">
+          <div class="caclculator-field__wrapper">
+            <label class="caclculator-field__label caclculator-field__label--val">
+              <span class="small caclculator-field__label-text caclculator-field__label-text--light">Стоимость заявки</span>
+              <input class="caclculator-field__input" type="number" id="application-cost" readonly placeholder="0">
+            </label>
+            <div class="caclculator-field__tooltip tooltip">
+              ?
+              <span class="small anim-fade-up tooltip__text">Сумма трат на бюджет / количество заявок</span>
+            </div>
+          </div>
+          <div class="caclculator-field__wrapper">
+            <label class="caclculator-field__label caclculator-field__label--val">
+              <span class="small caclculator-field__label-text caclculator-field__label-text--light">Стоимость клиента</span>
+              <input class="caclculator-field__input" type="number" id="customer-cost" readonly placeholder="0">
+            </label>
+            <div class="caclculator-field__tooltip tooltip">
+              ?
+              <span class="small anim-fade-up tooltip__text">Сумма трат на бюджет / количество клиентов</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caclculator__field caclculator-field">
+        <div class="caclculator-field__content">
+          <div class="caclculator-field__wrapper">
+            <label class="caclculator-field__label caclculator-field__label--val">
+              <span class="small caclculator-field__label-text caclculator-field__label-text--light">Разовый доход с клиента</span>
+              <input class="caclculator-field__input" type="number" id="one-time-income" readonly placeholder="0">
+            </label>
+            <div class="caclculator-field__tooltip tooltip">
+              ?
+              <span class="small anim-fade-up tooltip__text">Сумма среднего чека за вычетом стоимости клиента</span>
+            </div>
+          </div>
+          <div class="caclculator-field__wrapper">
+            <label class="caclculator-field__label caclculator-field__label--val">
+              <span class="small caclculator-field__label-text caclculator-field__label-text--light">LTV 1 клиента</span>
+              <input class="caclculator-field__input" type="number" id="ltv-value" readonly placeholder="0">
+            </label>
+            <div class="caclculator-field__tooltip tooltip">
+              ?
+              <span class="small anim-fade-up tooltip__text">Прибыль, которую вы получаете с клиента за весь период сотрудничества</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caclculator__field caclculator-field">
+        <div class="caclculator-field__content">
+          <div class="caclculator-field__wrapper">
+            <label class="caclculator-field__label caclculator-field__label--percent">
+              <span class="small caclculator-field__label-text caclculator-field__label-text--light">ROI</span>
+              <input class="caclculator-field__input" type="number" id="roi-value" readonly placeholder="0">
+            </label>
+            <div class="caclculator-field__tooltip tooltip">
+              ?
+              <span class="small anim-fade-up tooltip__text">Отношение прибыли к потраченным средствам в рекламу</span>
+            </div>
+          </div>
+          <div class="caclculator-field__wrapper">
+            <label class="caclculator-field__label caclculator-field__label--val">
+              <span class="small caclculator-field__label-text caclculator-field__label-text--light">Прибыль с 1 рубля</span>
+              <input class="caclculator-field__input" type="number" id="profit-value" readonly placeholder="0">
+            </label>
+            <div class="caclculator-field__tooltip tooltip">
+              ?
+              <span class="small anim-fade-up tooltip__text">Ваша прибыль с 1 рубля, вложенного в рекламу. Если число &lt;1, то вы понесете убытки</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

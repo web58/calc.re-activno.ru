@@ -1,0 +1,45 @@
+.modal {
+  position: relative;
+  margin: 15px;
+  padding: 30px;
+  max-width: 330px;
+  color: var(--black);
+  background-color: var(--white);
+  border-radius: 4px;
+
+  &__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: var(--gray);
+    outline: none;
+    cursor: pointer;
+    transition: color .15s ease-in-out;
+
+    &:hover,
+    &:focus {
+      color: var(--accent);
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    margin-bottom: 30px;
+  }
+
+  &__error-text {
+    color: var(--red);
+  }
+
+  @include media-min ($md) {
+    max-width: 445px;
+    padding: 36px;
+
+    &__title {
+      margin-bottom: 30px;
+    }
+  }
+}

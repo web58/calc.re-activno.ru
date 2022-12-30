@@ -1,0 +1,19 @@
+.about {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  font-size: 18px;
+
+  &__title {
+    margin-bottom: 24px;
+  }
+
+  &__formula {
+    font-size: 20px;
+    color: var(--accent);
+  }
+
+  @include media-min ($xl) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}

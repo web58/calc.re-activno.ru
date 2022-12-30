@@ -1,0 +1,33 @@
+<div class="hystmodal hystmodal--simple" id="modal-thanks" aria-hidden="true">
+  <div class="hystmodal__wrap">
+    <div class="hystmodal__window hystmodal__window--form" role="dialog" aria-modal="true">
+      <div class="modal">
+        <button class="btn-reset modal__close" type="button" aria-label="Закрыть окно" data-hystclose>
+          <svg class="modal__close-icon" width="14" height="14" aria-hidden="true">
+            <use xlink:href="img/sprite.svg#icon-cross"></use>
+          </svg>
+        </button>
+        <h2 class="indent-reset hd hd--h1 modal__title">Спасибо за заявку!</h2>
+        <p class="indent-reset modal__text">Наш менеджер свяжется с вами в течение дня и поможет подобрать оптимальный вариант.</p>
+        <button class="btn-reset btn btn--outlined" type="button" data-hystclose>Хорошо</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hystmodal hystmodal--simple" id="modal-error" aria-hidden="true">
+  <div class="hystmodal__wrap">
+    <div class="hystmodal__window hystmodal__window--form" role="dialog" aria-modal="true">
+      <div class="modal">
+        <button class="btn-reset modal__close" type="button" aria-label="Закрыть окно" data-hystclose>
+          <svg class="modal__close-icon" width="14" height="14" aria-hidden="true">
+            <use xlink:href="img/sprite.svg#icon-cross"></use>
+          </svg>
+        </button>
+        <h2 class="indent-reset hd hd--h1 modal__title modal__error-text">Сбой отправки!</h2>
+        <p class="indent-reset modal__text">При отправке произошел сбой. Попробуйте повторить попытку позже.</p>
+        <button class="btn-reset btn btn--outlined" type="button" data-hystclose>Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>

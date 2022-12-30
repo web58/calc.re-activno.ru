@@ -1,0 +1,89 @@
+.caclculator {
+  &__data {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  &__field {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+
+    &--decor {
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background-color: var(--medium-gray);
+      }
+    }
+  }
+
+  &__results {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    color: var(--white);
+    background-color: var(--black);
+  }
+
+  @include media-min ($md) {
+
+    &__data,
+    &__results {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    &__field-wrapper {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    &__field {
+      position: relative;
+      margin-top: 30px;
+      padding-bottom: 30px;
+      flex-basis: 100%;
+
+      &:not(:last-child) {
+        margin-right: 30px;
+        padding-right: 30px;
+        margin-bottom: 0;
+      }
+
+      &--decor {
+        &::after {
+          left: auto;
+          bottom: 0;
+          top: -79px;
+          right: 0;
+          width: 1px;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  @include media-min ($xl) {
+    &__field {
+      margin-top: 40px;
+      padding-bottom: 40px;
+
+      &--decor {
+        &::after {
+          top: -112px;
+        }
+      }
+    }
+  }
+}
+
+@import "caclculator-field";

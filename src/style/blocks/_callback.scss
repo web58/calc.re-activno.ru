@@ -1,0 +1,107 @@
+.callback {
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    background-color: var(--black);
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: 4px;
+    box-shadow: var(--card-shadow);
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    & > span {
+      display: block;
+      color: var(--accent);
+    }
+  }
+
+  &__descr {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  &__form {
+    display: grid;
+    align-items: start;
+    row-gap: 24px;
+  }
+
+  &__submit {
+    width: 100%;
+  }
+
+  @include media-min ($sm) {
+    &__submit {
+      padding: 18px 36px;
+      width: auto;
+    }
+  }
+
+  @include media-min ($md) {
+    &::after {
+      top: 40px;
+      bottom: 40px;
+    }
+
+    &__content {
+      padding: 40px;
+      width: 570px;
+    }
+
+    &__title {
+      margin-bottom: 24px;
+    }
+
+    &__descr {
+      margin-bottom: 40px;
+    }
+
+    &__form {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 30px;
+    }
+
+    &__policy-wrapper,
+    &__submit-wrapper {
+      grid-column: span 2;
+    }
+  }
+
+  @include media-min ($xl) {
+    &__content {
+      width: 905px;
+    }
+
+    &__form {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__policy-wrapper {
+      grid-row: 2 / 3;
+      grid-column: span 3;
+    }
+
+    &__submit-wrapper {
+      grid-column: span 1;
+    }
+
+    &__submit {
+      padding: 14px 24px;
+    }
+  }
+}

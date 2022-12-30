@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  align-items: center;
+  min-height: 60px;
+  color: var(--black);
+  background-color: var(--white);
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    flex-shrink: 0;
+  }
+
+  &__contacts {
+    display: flex;
+    margin: -7px -14px;
+
+    & > li {
+      margin: 7px 14px;
+    }
+  }
+
+  @include media-min ($xl) {
+    min-height: 80px;
+
+    &__logo {
+      width: 200px;
+      height: 55px;
+    }
+  }
+}

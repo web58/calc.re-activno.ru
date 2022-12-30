@@ -1,0 +1,147 @@
+.footer {
+  padding-top: 60px;
+  padding-bottom: 50px;
+  color: var(--white);
+  background-color: var(--black);
+  text-align: center;
+
+  &__tagline {
+    margin-bottom: 36px;
+  }
+
+  &__relations {
+    margin-bottom: 48px;
+  }
+
+  &__contacts {
+    & > li {
+      margin-bottom: 24px;
+    }
+  }
+
+  @include media-min ($md) {
+    &__contacts {
+      display: flex;
+      justify-content: center;
+      margin: -30px;
+      margin-bottom: 0;
+
+      & > li {
+        margin: 30px;
+      }
+    }
+
+  }
+
+  @include media-min ($xl) {
+    &__relations {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__contacts {
+      margin: -10px -40px;
+      margin-right: 80px;
+
+      & > li {
+        margin: 10px 40px;
+      }
+    }
+  }
+}
+
+.footer-contact {
+  display: inline-flex;
+  align-items: center;
+  color: var(--white);
+  text-decoration: none;
+  transition: color .15s ease-in-out;
+
+  &:hover {
+    color: var(--accent);
+  }
+
+  &__icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background-color: var(--accent);
+    border-radius: 50%;
+  }
+
+  &__title {
+    font-weight: 500;
+    margin-left: 16px;
+  }
+}
+
+.footer-socials {
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    margin: -4px;
+
+    & > li {
+      margin: 4px;
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    transition: transform .15s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  @include media-min ($xl) {
+    display: flex;
+    align-items: center;
+
+    &__title {
+      margin-right: 12px;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.footer-rules {
+  color: var(--gray);
+  display: grid;
+  justify-items: center;
+  row-gap: 16px;
+
+  &__policy-link {
+    color: inherit;
+    margin-bottom: 20px;
+    transition: color .15s ease-in-out;
+
+    &:hover {
+      color: var(--white);
+      text-decoration: none;
+    }
+  }
+
+  &__site-link {
+    color: inherit;
+    transition: color .15s ease-in-out;
+
+    &:hover {
+      color: var(--white);
+      text-decoration: none;
+    }
+  }
+}

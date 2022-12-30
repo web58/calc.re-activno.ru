@@ -1,0 +1,26 @@
+// COLORS
+:root {
+  --white: #FFFFFF;
+  --black: #1D1D1B;
+  --gray: #888888;
+  --light-gray: #F2F2F2;
+  --medium-gray: #DFDFDF;
+  --red: #E30613;
+  --red80: #b5030d;
+  --red20: #f9cdd0;
+  --light-shadow: 0px 4px 16px rgba(20, 20, 20, 0.06);
+  --card-shadow: 0px 2px 24px rgba(20, 20, 20, 0.08);
+
+  --accent: var(--red);
+  --accent-hov: var(--red80);
+  --error: var(--red20);
+}
+
+//BREAKPOINTS FOR MOBILE FIRST
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+// Fonts
+$main-font: "Ubuntu";

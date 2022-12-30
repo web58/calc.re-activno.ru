@@ -1,0 +1,133 @@
+.caclculator-field {
+  border: none;
+
+  &__title {
+    margin-bottom: 24px;
+  }
+
+  &__content {
+    display: flex;
+    align-items: flex-end;
+    margin-right: 10px;
+
+    & > div {
+      flex-basis: 100%;
+    }
+
+    & > div:first-child {
+      margin-right: 40px;
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__label {
+    position: relative;
+    display: grid;
+    row-gap: 8px;
+
+    &::after {
+      position: absolute;
+      right: 16px;
+      bottom: 15px;
+      color: var(--gray);
+      z-index: 1;
+    }
+
+    &--val {
+      &::after {
+        content: 'P';
+      }
+
+      & > input {
+        padding-right: 35px;
+      }
+    }
+
+    &--percent {
+      &::after {
+        content: '%';
+      }
+
+      & > input {
+        padding-right: 35px;
+      }
+    }
+
+    &--date {
+      &::after {
+        content: 'мес.';
+      }
+
+      & > input {
+        padding-right: 55px;
+      }
+    }
+  }
+
+  &__input {
+    width: 100%;
+    font-size: 16px;
+    padding: 16px;
+    background-color: var(--light-gray);
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  &__label-text {
+    color: var(--gray);
+
+    &--light {
+      color: var(--white);
+
+      & + input {
+        background-color: var(--white);
+      }
+    }
+  }
+
+  &__tooltip {
+    position: absolute;
+    right: -8px;
+    bottom: 42px;
+  }
+
+  @include media-min ($md) {
+    &__content {
+      flex-direction: column;
+      align-items: stretch;
+      margin-right: 0;
+
+      & > div:first-child {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+    }
+
+    &__label-text {
+      white-space: nowrap;
+    }
+  }
+
+  @include media-min ($xl) {
+    &__content {
+      flex-direction: row;
+      align-items: flex-end;
+
+      & > div:first-child {
+        margin-right: 20px;
+        margin-bottom: 0;
+      }
+    }
+
+    &__label-text {
+      white-space: normal;
+    }
+  }
+}

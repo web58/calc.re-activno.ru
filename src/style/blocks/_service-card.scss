@@ -1,0 +1,36 @@
+.service-card {
+  padding: 20px;
+  box-shadow: var(--card-shadow);
+
+  &__title {
+    color: var(--accent);
+    margin-bottom: 30px;
+  }
+
+  &__price {
+    margin-bottom: 20px;
+  }
+
+  @include media-min ($md) {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+      flex-shrink: 0;
+      margin-bottom: auto;
+    }
+
+    &__price {
+      margin-top: 30px;
+    }
+  }
+
+  @include media-min ($xl) {
+    padding: 30px;
+    align-items: flex-start;
+
+    &__price {
+      margin-bottom: 30px;
+    }
+  }
+}
