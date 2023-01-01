@@ -64,7 +64,7 @@ const ititCalculator = () => {
   }
 
   function getProfit() {
-    if ( !getROI() || !profitValueNode.value ) return;
+    if ( !getROI() || !profitValueNode ) return;
     const result = getNumberValue( getROI() / 100 );
     return profitValueNode.value = result;
   }
