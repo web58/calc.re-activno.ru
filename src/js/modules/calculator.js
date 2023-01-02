@@ -22,52 +22,52 @@ const ititCalculator = () => {
   const roiValueNode = document.querySelector( '#roi-value' );
   const profitValueNode = document.querySelector( '#profit-value' );
 
-  function getApplicationCost() {
+  const getApplicationCost = () => {
     const BudM = +budgetMonthNode.value;
     const MCst = +maintenanceCostsNode.value;
     const ACnt = +applicationsCountNode.value;
     if ( !BudM || !MCst || !ACnt || !applicationCostNode ) return;
     const result = getNumberValue( ( getNumberValue( BudM ) + getNumberValue( MCst ) ) / getNumberValue( ACnt ) );
     return applicationCostNode.value = result;
-  }
+  };
 
-  function getCustomerCost() {
+  const getCustomerCost = () => {
     const BudM = +budgetMonthNode.value;
     const MCst = +maintenanceCostsNode.value;
     const ClCnt = +clientsCountNode.value;
     if ( !BudM || !MCst || !ClCnt || !customerCostNode ) return;
     const result = getNumberValue( ( getNumberValue( BudM ) + getNumberValue( MCst ) ) / getNumberValue( ClCnt ) );
     return customerCostNode.value = result;
-  }
+  };
 
-  function getOneTimeIncome() {
+  const getOneTimeIncome = () => {
     const AvCh = +averageCheckNode.value;
     if ( !AvCh || !oneTimeIncomeNode || !getCustomerCost() ) return;
     const result = getNumberValue( ( getNumberValue( AvCh ) - getCustomerCost() ) );
     return oneTimeIncomeNode.value = result;
-  }
+  };
 
-  function getLTV() {
+  const getLTV = () => {
     const AvCh = +averageCheckNode.value;
     const AvP = +averagePeriodNode.value;
     if ( !AvCh || !AvP || !ltvValueNode ) return;
     const result = getNumberValue( ( getNumberValue( AvCh ) * getNumberValue( AvP ) ) );
     return ltvValueNode.value = result;
-  }
+  };
 
-  function getROI() {
+  const getROI = () => {
     const BudM = +budgetMonthNode.value;
     const MCst = +maintenanceCostsNode.value;
     if ( !BudM || !MCst || !roiValueNode || !getLTV() ) return;
     const result = getNumberValue( ( getLTV() - getNumberValue( BudM ) - getNumberValue( MCst ) ) / ( getNumberValue( BudM ) + getNumberValue( MCst ) ) * 100 );
     return roiValueNode.value = result;
-  }
+  };
 
-  function getProfit() {
+  const getProfit = () => {
     if ( !getROI() || !profitValueNode ) return;
     const result = getNumberValue( getROI() / 100 );
     return profitValueNode.value = result;
-  }
+  };
 
   budgetMonthNode.addEventListener( 'input', () => {
     getApplicationCost();
