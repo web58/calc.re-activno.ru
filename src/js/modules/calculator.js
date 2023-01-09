@@ -1,6 +1,7 @@
 import {
   getNumberValue,
   debounce,
+  formatNumber,
 } from './utils.js';
 
 import {
@@ -31,13 +32,15 @@ const ititCalculator = () => {
       if ( response.ok ) {
         return response.json();
       }
-    } ).catch( simpleModal.open( '#modal-error' ) );
+    } ).catch( () => {
+      simpleModal.open( '#modal-error' );
+    } );
   };
 
   const renderData = ( data ) => {
     for ( let item in data ) {
-      if ( data[ item ] != 0 ) {
-        document.querySelector( `#${item}` ).value = getNumberValue( data[ item ] );
+      if ( data[ item ] !== 0 ) {
+        data[ item ] !== 'Error' ? document.querySelector( `#${item}` ).value = formatNumber( `${getNumberValue( data[ item ] )}` ) : document.querySelector( `#${item}` ).value = data[ item ];
       }
     }
   };
@@ -47,7 +50,9 @@ const ititCalculator = () => {
       .then( data => {
         renderData( data );
       } )
-      .catch( simpleModal.open( '#modal-error' ) );
+      .catch( () => {
+        simpleModal.open( '#modal-error' );
+      } );
   };
 
   CALC_INPUTS.forEach( ( input ) => {
