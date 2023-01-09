@@ -5,6 +5,10 @@ import {
 } from './utils.js';
 
 import {
+  Options,
+} from './options.js';
+
+import {
   simpleModal,
 } from './modal.js';
 
@@ -22,8 +26,8 @@ const ititCalculator = () => {
   };
 
   const sendCalcData = ( bodyObject ) => {
-    return fetch( './php/getJSON.php', {
-      method: 'POST',
+    return fetch( Options.RequestOptions.CalcHandler, {
+      method: Options.RequestOptions.MethodPost,
       body: JSON.stringify( bodyObject ),
       headers: {
         'content-type': 'application/json'
