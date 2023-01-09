@@ -9,31 +9,6 @@ const debounce = ( cb, delay ) => {
   };
 };
 
-const throttle = ( cb, delay ) => {
-  let isWaiting = false;
-  let savedThis = null;
-  let savedArgs = null;
-
-  return function wrapper( ...args ) {
-    if ( isWaiting ) {
-      savedThis = this;
-      savedArgs = args;
-      return;
-    }
-
-    cb.apply( this, args );
-    isWaiting = true;
-    setTimeout( () => {
-      isWaiting = false;
-      if ( savedThis ) {
-        wrapper.apply( savedThis, savedArgs );
-        savedThis = null;
-        savedArgs = null;
-      }
-    }, delay );
-  };
-};
-
 const disableSubmitBtn = ( form ) => {
   form.querySelector( '[type="submit"]' ).setAttribute( 'disabled', 'disabled' );
 };
@@ -61,7 +36,6 @@ const getNumberValue = ( input ) => {
 
 export {
   debounce,
-  throttle,
   disableSubmitBtn,
   enableSubmitBtn,
   formatNumber,
