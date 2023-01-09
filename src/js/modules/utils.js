@@ -53,6 +53,12 @@ const formatNumber = ( value, separator = '.' ) => {
 
 const isInt = ( value ) => Number( value ) === value && value % 1 === 0;
 
+const getNumberValue = ( input ) => {
+  return isInt( input ) ?
+    parseInt( input, 10 ) :
+    parseFloat( input.toFixed( 2 ) );
+};
+
 export {
   debounce,
   throttle,
@@ -60,4 +66,5 @@ export {
   enableSubmitBtn,
   formatNumber,
   isInt,
+  getNumberValue,
 };

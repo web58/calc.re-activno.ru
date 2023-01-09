@@ -1,110 +1,57 @@
 import {
-  isInt,
+  getNumberValue,
+  debounce,
 } from './utils.js';
 
-const getNumberValue = ( input ) => {
-  return isInt( input ) ?
-    parseInt( input, 10 ) :
-    parseFloat( input.toFixed( 2 ) );
-};
+import {
+  simpleModal,
+} from './modal.js';
 
 const ititCalculator = () => {
-  const budgetMonthNode = document.querySelector( '#budget-month' );
-  const maintenanceCostsNode = document.querySelector( '#maintenance-costs' );
-  const applicationsCountNode = document.querySelector( '#applications-count' );
-  const clientsCountNode = document.querySelector( '#clients-count' );
-  const averageCheckNode = document.querySelector( '#average-check' );
-  const averagePeriodNode = document.querySelector( '#average-period' );
-  const applicationCostNode = document.querySelector( '#application-cost' );
-  const customerCostNode = document.querySelector( '#customer-cost' );
-  const oneTimeIncomeNode = document.querySelector( '#one-time-income' );
-  const ltvValueNode = document.querySelector( '#ltv-value' );
-  const roiValueNode = document.querySelector( '#roi-value' );
-  const profitValueNode = document.querySelector( '#profit-value' );
+  const CALC_INPUTS = document.querySelectorAll( '.caclculator__data .caclculator-field__input' );
 
-  const getApplicationCost = () => {
-    const BudM = +budgetMonthNode.value;
-    const MCst = +maintenanceCostsNode.value;
-    const ACnt = +applicationsCountNode.value;
-    if ( !BudM || !MCst || !ACnt || !applicationCostNode ) return;
-    const result = getNumberValue( ( getNumberValue( BudM ) + getNumberValue( MCst ) ) / getNumberValue( ACnt ) );
-    return applicationCostNode.value = result;
+  const getObjectFromArrays = ( ARRAY_NODES ) => {
+    const ARRAY_KEYS = Array.from( ARRAY_NODES ).map( item => item.id.toLowerCase().replace( '-', '_' ) );
+    const ARRAY_VALUES = Array.from( ARRAY_NODES ).map( item => Number( item.value ) );
+    const RESULT_OBJECT = {};
+    for ( let i = 0; i < ARRAY_KEYS.length; i++ ) {
+      RESULT_OBJECT[ ARRAY_KEYS[ i ] ] = ARRAY_VALUES[ i ];
+    }
+    return RESULT_OBJECT;
   };
 
-  const getCustomerCost = () => {
-    const BudM = +budgetMonthNode.value;
-    const MCst = +maintenanceCostsNode.value;
-    const ClCnt = +clientsCountNode.value;
-    if ( !BudM || !MCst || !ClCnt || !customerCostNode ) return;
-    const result = getNumberValue( ( getNumberValue( BudM ) + getNumberValue( MCst ) ) / getNumberValue( ClCnt ) );
-    return customerCostNode.value = result;
+  const sendCalcData = ( bodyObject ) => {
+    return fetch( './php/getJSON.php', {
+      method: 'POST',
+      body: JSON.stringify( bodyObject ),
+      headers: {
+        'content-type': 'application/json'
+      }
+    } ).then( ( response ) => {
+      if ( response.ok ) {
+        return response.json();
+      }
+    } ).catch( simpleModal.open( '#modal-error' ) );
   };
 
-  const getOneTimeIncome = () => {
-    const AvCh = +averageCheckNode.value;
-    if ( !AvCh || !oneTimeIncomeNode || !getCustomerCost() ) return;
-    const result = getNumberValue( ( getNumberValue( AvCh ) - getCustomerCost() ) );
-    return oneTimeIncomeNode.value = result;
+  const renderData = ( data ) => {
+    for ( let item in data ) {
+      if ( data[ item ] != 0 ) {
+        document.querySelector( `#${item}` ).value = getNumberValue( data[ item ] );
+      }
+    }
   };
 
-  const getLTV = () => {
-    const AvCh = +averageCheckNode.value;
-    const AvP = +averagePeriodNode.value;
-    if ( !AvCh || !AvP || !ltvValueNode ) return;
-    const result = getNumberValue( ( getNumberValue( AvCh ) * getNumberValue( AvP ) ) );
-    return ltvValueNode.value = result;
+  const getData = () => {
+    sendCalcData( getObjectFromArrays( CALC_INPUTS ) )
+      .then( data => {
+        renderData( data );
+      } )
+      .catch( simpleModal.open( '#modal-error' ) );
   };
 
-  const getROI = () => {
-    const BudM = +budgetMonthNode.value;
-    const MCst = +maintenanceCostsNode.value;
-    if ( !BudM || !MCst || !roiValueNode || !getLTV() ) return;
-    const result = getNumberValue( ( getLTV() - getNumberValue( BudM ) - getNumberValue( MCst ) ) / ( getNumberValue( BudM ) + getNumberValue( MCst ) ) * 100 );
-    return roiValueNode.value = result;
-  };
-
-  const getProfit = () => {
-    if ( !getROI() || !profitValueNode ) return;
-    const result = getNumberValue( getROI() / 100 );
-    return profitValueNode.value = result;
-  };
-
-  budgetMonthNode.addEventListener( 'input', () => {
-    getApplicationCost();
-    getCustomerCost();
-    getOneTimeIncome();
-    getROI();
-    getProfit();
-  } );
-
-  maintenanceCostsNode.addEventListener( 'input', () => {
-    getApplicationCost();
-    getCustomerCost();
-    getOneTimeIncome();
-    getROI();
-    getProfit();
-  } );
-
-  applicationsCountNode.addEventListener( 'input', () => {
-    getApplicationCost();
-  } );
-
-  clientsCountNode.addEventListener( 'input', () => {
-    getCustomerCost();
-    getOneTimeIncome();
-  } );
-
-  averageCheckNode.addEventListener( 'input', () => {
-    getOneTimeIncome();
-    getLTV();
-    getROI();
-    getProfit();
-  } );
-
-  averagePeriodNode.addEventListener( 'input', () => {
-    getLTV();
-    getROI();
-    getProfit();
+  CALC_INPUTS.forEach( ( input ) => {
+    input.addEventListener( 'input', debounce( getData, 1500 ) );
   } );
 };
 
