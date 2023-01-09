@@ -25,6 +25,7 @@ export const Options = {
   },
   RequestOptions: {
     HandlerURL: 'https://jsonplaceholder.typicode.com/posts',
+    CalcHandler: './php/getJSON.php',
     MethodGet: 'GET',
     MethodPost: 'POST',
   },
