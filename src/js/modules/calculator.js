@@ -44,7 +44,7 @@ const ititCalculator = () => {
   const renderData = ( data ) => {
     for ( let item in data ) {
       if ( data[ item ] !== 0 ) {
-        data[ item ] !== 'Error' ? document.querySelector( `#${item}` ).value = formatNumber( `${getNumberValue( data[ item ] )}` ) : document.querySelector( `#${item}` ).value = data[ item ];
+        document.querySelector( `#${item}` ).value = formatNumber( `${getNumberValue( data[ item ] )}` );
       }
     }
   };

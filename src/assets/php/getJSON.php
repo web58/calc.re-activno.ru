@@ -43,13 +43,13 @@ function get_ROI($json) {
   $bud_m = $json['budget_month'];
   $m_cost = $json['maintenance_costs'];
   if ( $bud_m && $m_cost && get_LTV($json) ) {
-    return $bud_m === $m_cost ? 'Error' : ( (get_LTV($json) - $bud_m - $m_cost) / ($bud_m - $m_cost) * 100);
+    return ( (get_LTV($json) - $bud_m - $m_cost) / ($bud_m + $m_cost) * 100);
   }
   return 0;
 }
 
 function get_profit($json) {
-  if ( get_ROI($json) && get_ROI($json) !== 'Error' ) {
+  if ( get_ROI($json) ) {
     return ( get_ROI($json) / 100 );
   }
   return 0;
