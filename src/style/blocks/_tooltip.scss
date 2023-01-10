@@ -4,9 +4,9 @@
   align-items: center;
   color: var(--gray);
   background-color: var(--white);
-  font-size: 14px;
-  width: 18px;
-  height: 18px;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
   border: 1px solid var(--gray);
   border-radius: 50%;
   cursor: pointer;
@@ -22,8 +22,8 @@
   &__text {
     display: none;
     position: absolute;
-    right: -8px;
-    bottom: 25px;
+    right: -5px;
+    bottom: 30px;
     z-index: 1;
     padding: 10px;
     width: 45vw;

@@ -38,7 +38,7 @@
 
     &--val {
       &::after {
-        content: 'P';
+        content: '\20BD';
       }
 
       & > input {
@@ -94,8 +94,8 @@
 
   &__tooltip {
     position: absolute;
-    right: -8px;
-    bottom: 42px;
+    right: -12px;
+    bottom: 38px;
   }
 
   @include media-min ($md) {
