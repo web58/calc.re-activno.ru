@@ -24,7 +24,7 @@ export const Options = {
     threshold: 1,
   },
   RequestOptions: {
-    HandlerURL: 'https://jsonplaceholder.typicode.com/posts',
+    HandlerURL: './php/send-mail.php',
     CalcHandler: './php/getJSON.php',
     MethodGet: 'GET',
     MethodPost: 'POST',
