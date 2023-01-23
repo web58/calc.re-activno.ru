@@ -1,0 +1,13 @@
+.clear-field {
+  position: absolute;
+  z-index: 2;
+  bottom: 14px;
+  right: -20px;
+  display: none;
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg width='26' height='22' viewBox='0 0 26 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.09375 3.72291L5.00021 11M5.00021 11L11.5942 6.02653M5.00021 11C5.00021 5.47715 9.47757 1 15.0004 1C20.5233 1 25.0004 5.47715 25.0004 11C25.0004 16.5228 20.5233 21 15.0004 21C11.9988 21 9.30596 19.7591 7.47292 17.6951' stroke='%23E30613' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 15px auto;
+}
