@@ -1,2 +1,13 @@
 User-agent: *
-Disallow: /
+Allow: /*.js
+Allow: /*.css
+
+User-agent: Googlebot
+Allow: /*.js
+Allow: /*.css
+
+User-agent: Yandex
+Allow: /*.js
+Allow: /*.css
+
+Host: https://calc.re-activno.ru/
