@@ -59,8 +59,32 @@ const ititCalculator = () => {
       } );
   };
 
+  const onClearFieldClick = ( evt ) => {
+    evt.target.previousElementSibling.value = '';
+    evt.target.style.display = 'none';
+    evt.target.removeEventListener( 'click', onClearFieldClick );
+  };
+
+  const showClearBtn = ( evt ) => {
+    if ( !evt.target.nextElementSibling && !evt.target.nextElementSibling.style.display !== 'inline-block' ) return;
+    evt.target.nextElementSibling.style.display = 'inline-block';
+    evt.target.nextElementSibling.addEventListener( 'click', onClearFieldClick );
+  };
+  const hideClearBtn = ( evt ) => {
+    if ( !evt.target.nextElementSibling && !evt.target.nextElementSibling.style.display !== 'none' ) return;
+    evt.target.nextElementSibling.style.display = 'none';
+    evt.target.nextElementSibling.removeEventListener( 'click', onClearFieldClick );
+  };
+
   CALC_INPUTS.forEach( ( input ) => {
     input.addEventListener( 'input', debounce( getData, 1500 ) );
+    input.addEventListener( 'input', ( evt ) => {
+      if ( evt.target.value ) {
+        showClearBtn( evt );
+      } else {
+        hideClearBtn( evt );
+      }
+    } );
   } );
 };
 
